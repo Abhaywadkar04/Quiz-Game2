@@ -1,0 +1,36 @@
+<!-- game_over.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Over</title>
+</head>
+<style>
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center;
+    margin: 50px;
+}
+
+h2 {
+    color: #dc3545;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* You can add more styling as needed */
+</style>
+
+<body>
+    <h2>Game Over, {{ username }}!</h2>
+    <p>Your final score: {{ score }}</p>
+    <p>Total prize won: {{ price }}</p>
+</body>
+</html>

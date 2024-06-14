@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Question</title>
+    <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-image: url('/static/secondpage.jpg');
+        background-size: cover;
+        
+        color: #ffffff;
+        text-align: center;
+        margin: 50px;
+        /* background-image: url('secondpage.jpg') */
+    }
+    
+    h2 {
+        color: #007BFF;
+    }
+    
+    p {
+        
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+    
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #3170cee0;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    label {
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+    
+    input[type="radio"] {
+        display: none;
+    }
+    
+    label {
+        position: relative;
+        padding-left: 30px;
+        cursor: pointer;
+    }
+    
+    label:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 2px;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #007BFF;
+        border-radius: 50%;
+        background-color: #fff;
+    }
+    
+    input[type="radio"]:checked + label:before {
+        background-color: #007BFF;
+    }
+    
+    input[type="hidden"] {
+        display: none;
+    }
+    
+    button {
+        background-color: #007BFF;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 15px;
+    }
+    
+    button:hover {
+        background-color: #0056b3;
+    }
+    </style>
+</head>
+<body>
+    <h2>Welcome, {{ username }}!</h2>
+    <p>{{ question }}</p>
+    <form action="{{ url_for('quiz') }}" method="post">
+        {% set alphabet_options = ['a', 'b', 'c', 'd'] %}
+        {% for option in options %}
+            {% set index = loop.index0 %}
+            <input type="radio" id="{{ alphabet_options[index] }}" name="answer" value="{{ alphabet_options[index] }}">
+            <label for="{{ alphabet_options[index] }}">{{ option }}</label><br>
+        {% endfor %}
+        <input type="hidden" name="correct_answer" value="{{ correct_answer }}">
+        <input type="hidden" name="username" value="{{ username }}">
+        <br>
+        <button type="submit">Submit Answer</button>
+
+
+        <input type="hidden" name="answer" value="change">
+        <button type="submit" name="change_question">Change</button>
+        <button type="submit" name="action" value="50-50">50-50</button>
+    </form>
+   
+    
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <style>
+         body {
+            font-family: 'Arial', sans-serif;
+           /* background-image: url(/myenv/website/templates/secondpage.jpg); /* Use a relative path */
+           background-image: url('/static/secondpage.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            
+        }
+
+        form {
+            background-color: #f5e6e6;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        label {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 10px;
+            
+            
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <form action="/quiz" method="post">
+        <label for="username">Enter your name : </label>
+        <input type="text" id="username" name="username" required>
+        <!-- <img src="{{ url_for('static', filename='secondpage.jpg') }}" alt="Image"> -->
+
+        <br>
+        <button type="submit">Start Quiz</button>
+    </form>
+</body>
+</html>
